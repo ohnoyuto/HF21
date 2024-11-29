@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- フレームレイアウトをルートとして使用 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Google MapsのSupportMapFragment -->
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- 地図上に配置する検索バーなどの追加UI -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@android:color/white"
+        android:layout_gravity="start|top"
+        android:elevation="4dp">
+
+        <!-- 検索バー -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="検索バー"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <!-- エリア選択スピナー -->
+        <Spinner
+            android:id="@+id/area_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/area_array"
+            android:layout_marginTop="8dp" />
+        <!-- 戻るボタン -->
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ホームに戻る"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+    <!-- ピンを選択した際の詳細情報表示バブル -->
+    <LinearLayout
+        android:id="@+id/info_bubble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bubble_background"
+        android:padding="16dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:elevation="4dp">
+        <!-- バッテリー種類 -->
+        <TextView
+            android:id="@+id/battery_types"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="置いてあるバッテリーの種類"
+            android:textStyle="bold" />
+        <!-- 営業時間 -->
+        <TextView
+            android:id="@+id/operating_hours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="営業時間: 09:00~24:00" />
+        <!-- 返却可能台数 -->
+        <TextView
+            android:id="@+id/returnable_units"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="返却可能: 5台" />
+        <!-- 電話番号 -->
+        <TextView
+            android:id="@+id/phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="電話番号: 03-1234-5678" />
+        <!-- 住所 -->
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="住所: 東京都新宿区..." />
+    </LinearLayout>
+
+</FrameLayout>

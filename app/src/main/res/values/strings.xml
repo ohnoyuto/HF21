@@ -1,0 +1,39 @@
+<resources>
+    <!-- アプリ全体の文字列リソース -->
+
+    <!-- アプリ名 -->
+    <string name="app_name">My Google Maps App</string>
+
+    <!-- コンテンツ説明用文字列 -->
+    <string name="map_view_desc">地図ビュー</string>
+    <string name="info_icon_desc">情報アイコン</string>
+    <string name="search_hint">検索...</string>
+    <!-- ボタン用文字列 -->
+    <string name="yen_button">¥</string>
+    <string name="history_button">履歴</string>
+    <string name="fold_button">折る</string>
+    <string name="buy_button">買う</string>
+
+    <!-- マーカー関連文字列 -->
+    <!-- 東京 -->
+    <string name="tokyo_marker_title">東京</string>
+    <string name="tokyo_marker_battery">置いてあるバッテリーの種類:</string>
+    <string name="tokyo_marker_hours">営業時間: 09:00~24:00</string>
+    <string name="tokyo_marker_units">返却可能: 5台</string>
+    <string name="tokyo_marker_phone">電話番号: 03-1234-5678</string>
+    <string name="tokyo_marker_address">住所: 東京都新宿区</string>
+
+    <string name="shinjuku_marker_title">新宿駅</string>
+    <string name="shinjuku_marker_battery">置いてあるバッテリーの種類:</string>
+    <string name="shinjuku_marker_hours">営業時間: 05:00~24:00</string>
+    <string name="shinjuku_marker_units">返却可能: 10台</string>
+    <string name="shinjuku_marker_phone">電話番号: 03-2345-6789</string>
+    <string name="shinjuku_marker_address">住所: 東京都新宿区新宿3丁目</string>
+
+    <string name="shibuya_marker_title">渋谷駅</string>
+    <string name="shibuya_marker_battery">置いてあるバッテリーの種類:</string>
+    <string name="shibuya_marker_hours">営業時間: 06:00~23:00</string>
+    <string name="shibuya_marker_units">返却可能: 8台</string>
+    <string name="shibuya_marker_phone">電話番号: 03-3456-7890</string>
+    <string name="shibuya_marker_address">住所: 東京都渋谷区道玄坂</string>
+</resources>

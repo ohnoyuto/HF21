@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- アプリ全体のテーマ設定 -->
+    <style name="Theme.MyApp" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- プライマリカラー: アプリのメインテーマカラー -->
+        <item name="colorPrimary">@color/primaryColor</item> <!-- 主にツールバーや重要なUI要素に適用 -->
+
+        <!-- プライマリダークカラー: ステータスバーやダークモード用 -->
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item> <!-- ステータスバー背景色に使用 -->
+
+        <!-- アクセントカラー: 強調用ボタンやインタラクティブ要素に適用 -->
+        <item name="colorAccent">@color/accentColor</item> <!-- ボタンやハイライト部分の色 -->
+    </style>
+</resources>

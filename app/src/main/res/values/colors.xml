@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- プライマリカラー: アプリ全体のメインテーマ色 -->
+    <color name="primaryColor">#6200EE</color> <!-- メインテーマカラー（紫色） -->
+
+    <!-- プライマリダークカラー: ステータスバーやダークモードで使用 -->
+    <color name="primaryDarkColor">#3700B3</color> <!-- 濃い紫色 -->
+
+    <!-- アクセントカラー: ボタンや強調箇所に使用 -->
+    <color name="accentColor">#03DAC5</color> <!-- 明るいシアン（追加された行） -->
+</resources>

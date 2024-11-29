@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ルートレイアウト: ConstraintLayoutを使用 -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- 地図ビュー（Googleマップ表示用） -->
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/map_view_desc" />
+
+    <!-- 戻るボタン（メニュー画面に戻るため） -->
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="戻る"
+        android:backgroundTint="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <!-- 情報アイコン（検索バーの横に配置） -->
+    <ImageView
+        android:id="@+id/info_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_info"
+        android:contentDescription="@string/info_icon_desc"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="8dp" />
+
+    <!-- 検索バー（ユーザーが検索キーワードを入力する） -->
+    <EditText
+        android:id="@+id/search_bar"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:hint="@string/search_hint"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:maxWidth="300dp"
+        app:layout_constraintStart_toEndOf="@id/info_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="8dp" />
+
+    <!-- 情報バブル（マーカー選択時に詳細情報を表示） -->
+    <LinearLayout
+        android:id="@+id/info_bubble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@android:color/white"
+        android:visibility="gone"
+        android:elevation="4dp"
+        app:layout_constraintTop_toBottomOf="@id/search_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <!-- バッテリー種類の情報 -->
+        <TextView
+            android:id="@+id/battery_types"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="置いてあるバッテリーの種類: リチウムイオン"
+            android:textStyle="bold" />
+        <!-- 営業時間の情報 -->
+        <TextView
+            android:id="@+id/operating_hours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="営業時間: 09:00~24:00" />
+        <!-- 返却可能台数の情報 -->
+        <TextView
+            android:id="@+id/returnable_units"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="返却可能: 5台" />
+        <!-- 電話番号の情報 -->
+        <TextView
+            android:id="@+id/phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="電話番号: 03-1234-5678" />
+        <!-- 住所の情報 -->
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="住所: 東京都新宿区..." />
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

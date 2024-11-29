@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- エリア選択用の文字列配列 -->
+    <string-array name="area_array"> <!-- スピナーで使用するエリアのリスト -->
+        <!-- 各項目（区） -->
+        <item>新宿区</item>
+        <item>港区</item>
+        <item>千代田区</item>
+        <item>足立区</item>
+        <item>杉並区</item>
+        <item>中野区</item>
+    </string-array>
+</resources>
