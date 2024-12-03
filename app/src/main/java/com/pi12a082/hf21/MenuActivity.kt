@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 // メニュー画面を表示するアクティビティ
 class MenuActivity : AppCompatActivity() {
 
+
+
     // アクティビティ作成時に呼び出される
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +32,14 @@ class MenuActivity : AppCompatActivity() {
             // val intent = Intent(this, QRActivity::class.java)
             // startActivity(intent)
         }
+
+        // マイページボタンの処理
+        findViewById<Button>(R.id.my_page_button).setOnClickListener {
+            // マイページActivityへ遷移
+            val intent = Intent(this, MyPageActivity::class.java)
+            startActivity(intent)
+        }
+
 
         // 他のボタンの処理を追加可能
         // 例: 折り方検索、購入履歴など

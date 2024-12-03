@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- メニュー画面のルートレイアウト -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@android:color/white">
+    android:gravity="center">
 
     <!-- 検索バー -->
     <EditText
@@ -18,36 +17,38 @@
         android:background="@android:drawable/editbox_background"
         android:layout_marginBottom="16dp" />
 
-    <!-- メニュー項目 -->
-
-    <!-- QRコード読み取りボタン -->
+    <!-- QR読み取り -->
     <Button
         android:id="@+id/qr_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="QR読み取り" />
-    <!-- スタンド検索ボタン -->
+
+    <!-- スタンド検索 -->
     <Button
         android:id="@+id/stand_search_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="スタンド検索"
         android:layout_marginTop="8dp" />
-    <!-- 折り方ボタン -->
+
+    <!-- 折り方 -->
     <Button
         android:id="@+id/how_to_fold_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="折り方"
         android:layout_marginTop="8dp" />
-    <!-- 購入ボタン -->
+
+    <!-- 購入 -->
     <Button
         android:id="@+id/purchase_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="購入"
         android:layout_marginTop="8dp" />
-    <!-- 履歴ボタン -->
+
+    <!-- 履歴 -->
     <Button
         android:id="@+id/history_button"
         android:layout_width="match_parent"
@@ -55,4 +56,11 @@
         android:text="履歴"
         android:layout_marginTop="8dp" />
 
+    <!-- マイページ -->
+    <Button
+        android:id="@+id/my_page_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="マイページ"
+        android:layout_marginTop="8dp" />
 </LinearLayout>

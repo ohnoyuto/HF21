@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <!-- ヘッダー -->
+    <TextView
+        android:id="@+id/my_page_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="マイページ"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <!-- ボディの登録ボタン -->
+    <Button
+        android:id="@+id/register_body_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ボディの登録"
+        android:backgroundTint="@color/primaryColor"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="8dp" />
+
+    <!-- 所有しているボディボタン -->
+    <Button
+        android:id="@+id/owned_body_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="所有しているボディ"
+        android:backgroundTint="@color/primaryColor"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="8dp" />
+
+    <!-- 登録情報の変更ボタン -->
+    <Button
+        android:id="@+id/change_registration_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="登録情報の変更"
+        android:backgroundTint="@color/primaryColor"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="8dp" />
+
+    <!-- 利用履歴ボタン -->
+    <Button
+        android:id="@+id/usage_history_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="利用履歴"
+        android:backgroundTint="@color/primaryColor"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="8dp" />
+
+    <!-- お問い合わせボタン -->
+    <Button
+        android:id="@+id/contact_us_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="お問い合わせ"
+        android:backgroundTint="@color/primaryColor"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="8dp" />
+
+    <!-- 戻るボタン -->
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="戻る"
+        android:backgroundTint="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

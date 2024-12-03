@@ -1,4 +1,19 @@
 <resources>
+    <!-- ログインページ -->
+    <string name="login_hint_id">IDまたはメールアドレス</string>
+    <string name="login_hint_password">パスワード</string>
+    <string name="login_button">ログイン</string>
+    <string name="register_link">新規登録はこちら</string>
+
+    <!-- 新規登録ページ -->
+    <string name="register_hint_name">名前</string>
+    <string name="register_hint_id">ID</string>
+    <string name="register_hint_password">パスワード</string>
+    <string name="register_hint_birthdate">生年月日 (例: 1990/01/01)</string>
+    <string name="register_hint_address">住所</string>
+    <string name="register_hint_license">免許証番号</string>
+    <string name="register_button">登録</string>
+
     <!-- アプリ全体の文字列リソース -->
 
     <!-- アプリ名 -->
