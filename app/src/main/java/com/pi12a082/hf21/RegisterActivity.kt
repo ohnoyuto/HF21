@@ -1,5 +1,6 @@
 package com.pi12a082.hf21
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -19,6 +20,7 @@ class RegisterActivity : AppCompatActivity() {
         val passwordToggle = findViewById<Button>(R.id.password_toggle)
         val confirmPasswordToggle = findViewById<Button>(R.id.confirm_password_toggle)
         val birthdateInput = findViewById<EditText>(R.id.register_birthdate)
+        val backToLoginButton = findViewById<Button>(R.id.back_to_login_button)
 
         // パスワード表示/非表示トグル
         passwordToggle.setOnClickListener {
@@ -69,5 +71,12 @@ class RegisterActivity : AppCompatActivity() {
                 isEditing = false
             }
         })
+
+        // ログインページに戻るボタンのクリック処理
+        backToLoginButton.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish() // 現在のアクティビティを終了
+        }
     }
 }

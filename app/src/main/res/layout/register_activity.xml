@@ -123,6 +123,16 @@
             android:layout_height="wrap_content"
             android:text="登録"
             android:backgroundTint="@color/primaryColor"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="16dp" />
+
+        <!-- ログインページに戻るボタン -->
+        <Button
+            android:id="@+id/back_to_login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ログインページに戻る"
+            android:backgroundTint="@color/primaryDarkColor"
             android:textColor="@android:color/white" />
     </LinearLayout>
 </ScrollView>
