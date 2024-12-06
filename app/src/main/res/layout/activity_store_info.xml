@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- ヘッダー -->
+        <TextView
+            android:id="@+id/store_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="店舗名"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 利用可 -->
+        <TextView
+            android:id="@+id/store_available_units"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="利用可: 1台"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 返却可 -->
+        <TextView
+            android:id="@+id/store_returnable_units"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="返却可: 9台"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 営業時間 -->
+        <TextView
+            android:id="@+id/store_hours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="営業時間: 07:00 - 23:00"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 住所 -->
+        <TextView
+            android:id="@+id/store_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="住所: 東京都新宿区..."
+            android:layout_marginBottom="8dp" />
+
+        <!-- 電話番号 -->
+        <TextView
+            android:id="@+id/store_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="電話番号: 03-1234-5678"
+            android:layout_marginBottom="16dp" />
+
+        <!-- QRスキャンして借りるボタン -->
+        <Button
+            android:id="@+id/qr_scan_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="QRスキャンして借りる"
+            android:backgroundTint="@color/primaryColor"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 戻るボタン -->
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="戻る"
+            android:backgroundTint="@color/primaryColor"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</ScrollView>
