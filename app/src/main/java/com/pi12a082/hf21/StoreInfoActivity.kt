@@ -5,13 +5,13 @@ import android.widget.TextView
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import org.json.JSONArray
+import org.json.JSONObject
 
 class StoreInfoActivity : AppCompatActivity() {
 
     private var availableUnits = 0
     private var returnableUnits = 0
-
-    // ユーザーの所持しているバッテリー数を管理
     private var userOwnedUnits = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +28,6 @@ class StoreInfoActivity : AppCompatActivity() {
         val returnButton = findViewById<Button>(R.id.return_button)
         val backButton = findViewById<Button>(R.id.back_button)
 
-        // Intentからデータを取得
         storeName.text = intent.getStringExtra("STORE_NAME")
         availableUnits = intent.getIntExtra("AVAILABLE_UNITS", 0)
         returnableUnits = intent.getIntExtra("RETURNABLE_UNITS", 0)
@@ -39,58 +38,83 @@ class StoreInfoActivity : AppCompatActivity() {
         storeAddress.text = "住所: ${intent.getStringExtra("ADDRESS")}"
         storePhone.text = "電話番号: ${intent.getStringExtra("PHONE")}"
 
-        // ユーザーの所持バッテリー情報を取得
         userOwnedUnits = getUserOwnedUnits()
 
-        // 借りるボタン
         borrowButton.setOnClickListener {
-            if (userOwnedUnits > 0) {
-                Toast.makeText(this, "すでにバッテリーを所持しています。返却してください。", Toast.LENGTH_SHORT).show()
-            } else if (availableUnits > 0) {
-                availableUnits--
-                returnableUnits++
-                userOwnedUnits++
-
-                // 情報を更新
-                availableUnitsText.text = "利用可: ${availableUnits}台"
-                returnableUnitsText.text = "返却可: ${returnableUnits}台"
-
-                saveUnitCounts(storeName.text.toString(), availableUnits, returnableUnits)
-                saveUserOwnedUnits(userOwnedUnits)
-
-                Toast.makeText(this, "バッテリーを借りました", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "借りられるバッテリーがありません", Toast.LENGTH_SHORT).show()
-            }
+            handleBorrowAction(storeName, availableUnitsText, returnableUnitsText)
         }
 
-        // 返却ボタン
         returnButton.setOnClickListener {
-            if (userOwnedUnits > 0 && returnableUnits > 0) {
-                availableUnits++
-                returnableUnits--
-                userOwnedUnits--
-
-                // 情報を更新
-                availableUnitsText.text = "利用可: ${availableUnits}台"
-                returnableUnitsText.text = "返却可: ${returnableUnits}台"
-
-                saveUnitCounts(storeName.text.toString(), availableUnits, returnableUnits)
-                saveUserOwnedUnits(userOwnedUnits)
-
-                Toast.makeText(this, "バッテリーを返却しました", Toast.LENGTH_SHORT).show()
-            } else if (userOwnedUnits == 0) {
-                Toast.makeText(this, "返却するバッテリーがありません。", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "返却可能な台数がありません。", Toast.LENGTH_SHORT).show()
-            }
+            handleReturnAction(storeName, availableUnitsText, returnableUnitsText)
         }
 
-        // 戻るボタン
         backButton.setOnClickListener {
             finish()
         }
     }
+
+    private fun handleBorrowAction(
+        storeName: TextView,
+        availableUnitsText: TextView,
+        returnableUnitsText: TextView
+    ) {
+        if (userOwnedUnits > 0) {
+            Toast.makeText(this, "すでにバッテリーを所持しています。返却してください。", Toast.LENGTH_SHORT).show()
+        } else if (availableUnits > 0) {
+            availableUnits--
+            returnableUnits++
+            userOwnedUnits++
+
+            availableUnitsText.text = "利用可: ${availableUnits}台"
+            returnableUnitsText.text = "返却可: ${returnableUnits}台"
+
+            saveUnitCounts(storeName.text.toString(), availableUnits, returnableUnits)
+            saveUserOwnedUnits(userOwnedUnits)
+            addHistory("借りる", storeName.text.toString())
+
+            Toast.makeText(this, "バッテリーを借りました", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "借りられるバッテリーがありません", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun handleReturnAction(
+        storeName: TextView,
+        availableUnitsText: TextView,
+        returnableUnitsText: TextView
+    ) {
+        if (userOwnedUnits > 0 && returnableUnits > 0) {
+            availableUnits++
+            returnableUnits--
+            userOwnedUnits--
+
+            availableUnitsText.text = "利用可: ${availableUnits}台"
+            returnableUnitsText.text = "返却可: ${returnableUnits}台"
+
+            saveUnitCounts(storeName.text.toString(), availableUnits, returnableUnits)
+            saveUserOwnedUnits(userOwnedUnits)
+            addHistory("返却", storeName.text.toString())
+
+            Toast.makeText(this, "バッテリーを返却しました", Toast.LENGTH_SHORT).show()
+        } else if (userOwnedUnits == 0) {
+            Toast.makeText(this, "返却するバッテリーがありません。", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "返却可能な台数がありません。", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun addHistory(action: String, storeName: String) {
+        val sharedPreferences = getSharedPreferences("HistoryInfo", MODE_PRIVATE)
+        val historySet = sharedPreferences.getStringSet("history_list", mutableSetOf()) ?: mutableSetOf()
+        val timestamp = System.currentTimeMillis()
+        historySet.add("$action: $storeName - $timestamp")
+        with(sharedPreferences.edit()) {
+            putStringSet("history_list", historySet)
+            apply()
+        }
+    }
+
+
 
     private fun saveUnitCounts(location: String, availableUnits: Int, returnableUnits: Int) {
         val sharedPreferences = getSharedPreferences("BatteryInfo", MODE_PRIVATE)

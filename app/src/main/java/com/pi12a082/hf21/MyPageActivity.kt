@@ -18,6 +18,8 @@ class MyPageActivity : AppCompatActivity() {
         val usageHistoryButton = findViewById<Button>(R.id.usage_history_button)
         val contactUsButton = findViewById<Button>(R.id.contact_us_button)
         val backButton = findViewById<Button>(R.id.back_button)
+
+        // 戻るボタンの設定
         backButton.setOnClickListener {
             finish() // 現在の画面を閉じて前の画面に戻る
         }
@@ -36,11 +38,13 @@ class MyPageActivity : AppCompatActivity() {
         }
 
         usageHistoryButton.setOnClickListener {
-            Toast.makeText(this, "利用履歴が選択されました", Toast.LENGTH_SHORT).show()
+            // 利用履歴画面を開く
+            val intent = Intent(this, UsageHistoryActivity::class.java)
+            startActivity(intent)
         }
 
         contactUsButton.setOnClickListener {
-            // お問い合わせ画面を開く処理
+            // お問い合わせ画面を開く
             val intent = Intent(this, ContactActivity::class.java)
             startActivity(intent)
         }
