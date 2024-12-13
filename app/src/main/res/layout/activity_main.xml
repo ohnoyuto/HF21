@@ -26,16 +26,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
-    <!-- 情報アイコン（検索バーの横に配置） -->
-    <ImageView
-        android:id="@+id/info_icon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_info"
-        android:contentDescription="@string/info_icon_desc"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="8dp" />
+
 
     <!-- 検索バー（ユーザーが検索キーワードを入力する） -->
     <EditText
@@ -46,7 +37,6 @@
         android:inputType="text"
         android:minHeight="48dp"
         android:maxWidth="300dp"
-        app:layout_constraintStart_toEndOf="@id/info_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="8dp" />

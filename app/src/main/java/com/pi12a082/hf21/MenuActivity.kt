@@ -26,12 +26,6 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // QR読み取りボタンの処理
-        findViewById<Button>(R.id.qr_button).setOnClickListener {
-            // 今後追加予定のQR読み取り画面の処理を記述
-            // val intent = Intent(this, QRActivity::class.java)
-            // startActivity(intent)
-        }
 
         // マイページボタンの処理
         findViewById<Button>(R.id.my_page_button).setOnClickListener {
@@ -49,5 +43,6 @@ class MenuActivity : AppCompatActivity() {
         findViewById<Button>(R.id.history_button).setOnClickListener {
             // 購入履歴Activityを追加する場合、ここに処理を記述
         }
+
     }
 }

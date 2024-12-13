@@ -15,6 +15,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -23,6 +24,9 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var googleMap: GoogleMap
     private lateinit var infoBubble: View
     private val CAMERA_PERMISSION_CODE = 100
+
+    // ピンを管理するマップ
+    private val markerMap = mutableMapOf<String, Marker>()
 
     // 現在選択されている位置の情報を保持
     private var currentLocationName: String? = null
@@ -67,84 +71,110 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             }
             startActivity(intent)
         }
+
+        // 初期台数情報を保存
+        saveInitialUnitCounts()
     }
 
     override fun onMapReady(map: GoogleMap) {
         googleMap = map
-
-        // 東京マーカー
-        val defaultLocation = LatLng(35.6895, 139.6917)
-        val tokyoMarker = googleMap.addMarker(
-            MarkerOptions()
-                .position(defaultLocation)
-                .title("東京")
-        )
-
-        // 新宿マーカー
-        val shinjukuLocation = LatLng(35.6897, 139.7004)
-        val shinjukuMarker = googleMap.addMarker(
-            MarkerOptions()
-                .position(shinjukuLocation)
-                .title("新宿駅")
-        )
-
-        // 渋谷マーカー
-        val shibuyaLocation = LatLng(35.6580, 139.7016)
-        val shibuyaMarker = googleMap.addMarker(
-            MarkerOptions()
-                .position(shibuyaLocation)
-                .title("渋谷駅")
-        )
-
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultLocation, 12f))
+        setupMarkers()
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(35.6895, 139.6917), 12f))
 
         googleMap.setOnMarkerClickListener { clickedMarker ->
-            when (clickedMarker) {
-                tokyoMarker -> {
-                    showInfoBubble(
-                        "東京",
-                        "置いてあるバッテリーの種類: リチウムイオン",
-                        "営業時間: 09:00~24:00",
-                        5, // 利用可能数
-                        0, // 返却可能数
-                        "電話番号: 03-1234-5678",
-                        "住所: 東京都新宿区"
-                    )
-                }
-                shinjukuMarker -> {
-                    showInfoBubble(
-                        "新宿駅",
-                        "置いてあるバッテリーの種類: ニッケル水素",
-                        "営業時間: 05:00~24:00",
-                        10, // 利用可能数
-                        2, // 返却可能数
-                        "電話番号: 03-2345-6789",
-                        "住所: 東京都新宿区新宿3丁目"
-                    )
-                }
-                shibuyaMarker -> {
-                    showInfoBubble(
-                        "渋谷駅",
-                        "置いてあるバッテリーの種類: リチウムイオン",
-                        "営業時間: 06:00~23:00",
-                        8, // 利用可能数
-                        1, // 返却可能数
-                        "電話番号: 03-3456-7890",
-                        "住所: 東京都渋谷区道玄坂"
-                    )
-                }
+            val locationName = markerMap.entries.find { it.value == clickedMarker }?.key ?: return@setOnMarkerClickListener false
+            val (availableUnits, returnableUnits) = getUnitCounts(locationName)
+
+            when (locationName) {
+                "東京" -> showInfoBubble(
+                    "東京",
+                    "置いてあるバッテリーの種類: リチウムイオン",
+                    "営業時間: 09:00~24:00",
+                    availableUnits,
+                    returnableUnits,
+                    "電話番号: 03-1234-5678",
+                    "住所: 東京都新宿区"
+                )
+                "新宿駅" -> showInfoBubble(
+                    "新宿駅",
+                    "置いてあるバッテリーの種類: ニッケル水素",
+                    "営業時間: 05:00~24:00",
+                    availableUnits,
+                    returnableUnits,
+                    "電話番号: 03-2345-6789",
+                    "住所: 東京都新宿区新宿3丁目"
+                )
+                "渋谷駅" -> showInfoBubble(
+                    "渋谷駅",
+                    "置いてあるバッテリーの種類: リチウムイオン",
+                    "営業時間: 06:00~23:00",
+                    availableUnits,
+                    returnableUnits,
+                    "電話番号: 03-3456-7890",
+                    "住所: 東京都渋谷区道玄坂"
+                )
             }
             clickedMarker.showInfoWindow()
             true
         }
     }
 
+    private fun setupMarkers() {
+        val tokyoLocation = LatLng(35.6895, 139.6917)
+        val tokyoMarker = googleMap.addMarker(MarkerOptions().position(tokyoLocation).title("東京"))
+        markerMap["東京"] = tokyoMarker!!
+
+        val shinjukuLocation = LatLng(35.6897, 139.7004)
+        val shinjukuMarker = googleMap.addMarker(MarkerOptions().position(shinjukuLocation).title("新宿駅"))
+        markerMap["新宿駅"] = shinjukuMarker!!
+
+        val shibuyaLocation = LatLng(35.6580, 139.7016)
+        val shibuyaMarker = googleMap.addMarker(MarkerOptions().position(shibuyaLocation).title("渋谷駅"))
+        markerMap["渋谷駅"] = shibuyaMarker!!
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mapView.onResume()
+        refreshMarkers()
+    }
+
+    private fun refreshMarkers() {
+        markerMap.forEach { (location, marker) ->
+            val (availableUnits, returnableUnits) = getUnitCounts(location)
+            marker.snippet = "利用可: ${availableUnits}台 / 返却可: ${returnableUnits}台"
+            marker.showInfoWindow()
+        }
+    }
+
+    private fun saveInitialUnitCounts() {
+        val sharedPreferences = getSharedPreferences("BatteryInfo", MODE_PRIVATE)
+        if (!sharedPreferences.contains("東京_available")) {
+            with(sharedPreferences.edit()) {
+                putInt("東京_available", 5)
+                putInt("東京_returnable", 3)
+                putInt("新宿駅_available", 10)
+                putInt("新宿駅_returnable", 2)
+                putInt("渋谷駅_available", 8)
+                putInt("渋谷駅_returnable", 1)
+                apply()
+            }
+        }
+    }
+
+    private fun getUnitCounts(location: String): Pair<Int, Int> {
+        val sharedPreferences = getSharedPreferences("BatteryInfo", MODE_PRIVATE)
+        val availableUnits = sharedPreferences.getInt("${location}_available", 0)
+        val returnableUnits = sharedPreferences.getInt("${location}_returnable", 0)
+        return Pair(availableUnits, returnableUnits)
+    }
+
     private fun showInfoBubble(locationName: String, batteryInfo: String, hours: String, availableUnits: Int, returnableUnits: Int, phone: String, address: String) {
         currentLocationName = locationName
         currentBatteryInfo = batteryInfo
         currentHours = hours
-        currentAvailableUnits = availableUnits // 利用可能数
-        currentReturnableUnits = returnableUnits // 返却可能数
+        currentAvailableUnits = availableUnits
+        currentReturnableUnits = returnableUnits
         currentPhone = phone
         currentAddress = address
 
@@ -155,35 +185,5 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         findViewById<TextView>(R.id.address).text = address
 
         infoBubble.visibility = View.VISIBLE
-    }
-
-    override fun onStart() {
-        super.onStart()
-        mapView.onStart()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        mapView.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        mapView.onPause()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        mapView.onStop()
-    }
-
-    override fun onLowMemory() {
-        super.onLowMemory()
-        mapView.onLowMemory()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mapView.onDestroy()
     }
 }

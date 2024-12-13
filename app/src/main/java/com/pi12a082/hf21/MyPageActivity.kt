@@ -1,5 +1,6 @@
 package com.pi12a082.hf21
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -39,7 +40,9 @@ class MyPageActivity : AppCompatActivity() {
         }
 
         contactUsButton.setOnClickListener {
-            Toast.makeText(this, "お問い合わせが選択されました", Toast.LENGTH_SHORT).show()
+            // お問い合わせ画面を開く処理
+            val intent = Intent(this, ContactActivity::class.java)
+            startActivity(intent)
         }
     }
 }

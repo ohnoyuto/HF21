@@ -29,6 +29,7 @@
         <activity android:name=".RegisterActivity" android:exported="true" />
         <activity android:name=".MyPageActivity" android:exported="true" />
         <activity android:name=".StoreInfoActivity" android:exported="true" />
+        <activity android:name=".ContactActivity" />
 
 
 

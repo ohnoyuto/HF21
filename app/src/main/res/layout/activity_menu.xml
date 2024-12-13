@@ -6,24 +6,6 @@
     android:padding="16dp"
     android:gravity="center">
 
-    <!-- 検索バー -->
-    <EditText
-        android:id="@+id/search_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="検索"
-        android:drawableStart="@android:drawable/ic_menu_search"
-        android:padding="8dp"
-        android:background="@android:drawable/editbox_background"
-        android:layout_marginBottom="16dp" />
-
-    <!-- QR読み取り -->
-    <Button
-        android:id="@+id/qr_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="QR読み取り" />
-
     <!-- スタンド検索 -->
     <Button
         android:id="@+id/stand_search_button"
@@ -38,14 +20,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="折り方"
-        android:layout_marginTop="8dp" />
-
-    <!-- 購入 -->
-    <Button
-        android:id="@+id/purchase_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="購入"
         android:layout_marginTop="8dp" />
 
     <!-- 履歴 -->

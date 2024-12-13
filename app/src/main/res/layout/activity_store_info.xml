@@ -64,10 +64,20 @@
             android:id="@+id/qr_scan_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="QRスキャンして借りる"
+            android:text="借りる"
             android:backgroundTint="@color/primaryColor"
             android:textColor="@android:color/white"
             android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/return_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="返却"
+            android:backgroundTint="@color/primaryColor"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="16dp" />
+
 
         <!-- 戻るボタン -->
         <Button
