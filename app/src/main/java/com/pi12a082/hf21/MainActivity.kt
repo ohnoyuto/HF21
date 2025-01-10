@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun setupMarkers() {
         val tokyoLocation = LatLng(35.681236, 139.767125)
-        val tokyoMarker = googleMap.addMarker(MarkerOptions().position(tokyoLocation).title("東京"))
+        val tokyoMarker = googleMap.addMarker(MarkerOptions().position(tokyoLocation).title("東京駅"))
         markerMap["東京駅"] = tokyoMarker!!
 
         val shinjukuLocation = LatLng(35.6897, 139.7004)
