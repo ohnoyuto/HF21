@@ -31,24 +31,29 @@
 
     <!-- マーカー関連文字列 -->
     <!-- 東京 -->
-    <string name="tokyo_marker_title">東京</string>
-    <string name="tokyo_marker_battery">置いてあるバッテリーの種類:</string>
+    <string name="tokyo_marker_title">東京駅</string>
+    <string name="tokyo_marker_battery">置いてあるバッテリーの種類: リチウムイオン</string>
     <string name="tokyo_marker_hours">営業時間: 09:00~24:00</string>
-    <string name="tokyo_marker_units">返却可能: 5台</string>
+    <string name="tokyo_marker_available_units">利用可: 5台</string>
+    <string name="tokyo_marker_returnable_units">返却可: 3台</string>
     <string name="tokyo_marker_phone">電話番号: 03-1234-5678</string>
-    <string name="tokyo_marker_address">住所: 東京都新宿区</string>
+    <string name="tokyo_marker_address">住所: 東京都千代田区丸の内一丁目</string>
 
+    <!-- 新宿 -->
     <string name="shinjuku_marker_title">新宿駅</string>
-    <string name="shinjuku_marker_battery">置いてあるバッテリーの種類:</string>
+    <string name="shinjuku_marker_battery">置いてあるバッテリーの種類: ニッケル水素</string>
     <string name="shinjuku_marker_hours">営業時間: 05:00~24:00</string>
-    <string name="shinjuku_marker_units">返却可能: 10台</string>
+    <string name="shinjuku_marker_available_units">利用可: 10台</string>
+    <string name="shinjuku_marker_returnable_units">返却可: 2台</string>
     <string name="shinjuku_marker_phone">電話番号: 03-2345-6789</string>
     <string name="shinjuku_marker_address">住所: 東京都新宿区新宿3丁目</string>
 
+    <!-- 渋谷 -->
     <string name="shibuya_marker_title">渋谷駅</string>
-    <string name="shibuya_marker_battery">置いてあるバッテリーの種類:</string>
+    <string name="shibuya_marker_battery">置いてあるバッテリーの種類: リチウムイオン</string>
     <string name="shibuya_marker_hours">営業時間: 06:00~23:00</string>
-    <string name="shibuya_marker_units">返却可能: 8台</string>
+    <string name="shibuya_marker_available_units">利用可: 8台</string>
+    <string name="shibuya_marker_returnable_units">返却可: 1台</string>
     <string name="shibuya_marker_phone">電話番号: 03-3456-7890</string>
     <string name="shibuya_marker_address">住所: 東京都渋谷区道玄坂</string>
 </resources>

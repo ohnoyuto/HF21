@@ -1,40 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center">
+    android:layout_height="match_parent">
 
-    <!-- スタンド検索 -->
-    <Button
-        android:id="@+id/stand_search_button"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="スタンド検索"
-        android:layout_marginTop="8dp" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <!-- 折り方 -->
-    <Button
-        android:id="@+id/how_to_fold_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="折り方"
-        android:layout_marginTop="8dp" />
+        <Button
+            android:id="@+id/stand_search_button"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="スタンド検索"
+            android:textSize="26sp"
+            android:layout_marginBottom="50dp" />
 
-    <!-- 履歴 -->
-    <Button
-        android:id="@+id/history_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="履歴"
-        android:layout_marginTop="8dp" />
+        <Button
+            android:id="@+id/how_to_fold_button"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="折り方"
+            android:textSize="26sp"
+            android:layout_marginBottom="50dp" />
 
-    <!-- マイページ -->
-    <Button
-        android:id="@+id/my_page_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="マイページ"
-        android:layout_marginTop="8dp" />
-</LinearLayout>
+        <Button
+            android:id="@+id/history_button"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="履歴"
+            android:textSize="26sp"
+            android:layout_marginBottom="50dp" />
+
+        <Button
+            android:id="@+id/my_page_button"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="マイページ"
+            android:textSize="26sp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

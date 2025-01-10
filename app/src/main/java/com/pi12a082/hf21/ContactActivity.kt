@@ -33,12 +33,13 @@ class ContactActivity : AppCompatActivity() {
         )
 
         // ダイアログの表示
-        AlertDialog.Builder(this)
-            .setTitle("お問い合わせ内容を選択してください")
+        val builder = AlertDialog.Builder(this, R.style.CustomAlertDialogTheme)
+        builder.setTitle("お問い合わせ内容を選択してください")
             .setItems(options) { _, which ->
                 Toast.makeText(this, "選択: ${options[which]}", Toast.LENGTH_SHORT).show()
             }
             .setNegativeButton("キャンセル", null)
             .show()
     }
+
 }

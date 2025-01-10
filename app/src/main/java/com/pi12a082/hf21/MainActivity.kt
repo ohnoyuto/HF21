@@ -82,18 +82,22 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(35.6895, 139.6917), 12f))
 
         googleMap.setOnMarkerClickListener { clickedMarker ->
-            val locationName = markerMap.entries.find { it.value == clickedMarker }?.key ?: return@setOnMarkerClickListener false
+            val locationName = markerMap.entries.find { it.value == clickedMarker }?.key
+                ?: return@setOnMarkerClickListener false
+
+            // 最新の台数情報を取得
             val (availableUnits, returnableUnits) = getUnitCounts(locationName)
 
+            // 上部に情報を表示
             when (locationName) {
-                "東京" -> showInfoBubble(
-                    "東京",
+                "東京駅" -> showInfoBubble(
+                    "東京駅",
                     "置いてあるバッテリーの種類: リチウムイオン",
                     "営業時間: 09:00~24:00",
-                    availableUnits,
-                    returnableUnits,
+                    availableUnits, // 利用可台数
+                    returnableUnits, // 返却可台数
                     "電話番号: 03-1234-5678",
-                    "住所: 東京都新宿区"
+                    "住所: 東京都千代田区丸の内一丁目"
                 )
                 "新宿駅" -> showInfoBubble(
                     "新宿駅",
@@ -120,9 +124,9 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun setupMarkers() {
-        val tokyoLocation = LatLng(35.6895, 139.6917)
+        val tokyoLocation = LatLng(35.681236, 139.767125)
         val tokyoMarker = googleMap.addMarker(MarkerOptions().position(tokyoLocation).title("東京"))
-        markerMap["東京"] = tokyoMarker!!
+        markerMap["東京駅"] = tokyoMarker!!
 
         val shinjukuLocation = LatLng(35.6897, 139.7004)
         val shinjukuMarker = googleMap.addMarker(MarkerOptions().position(shinjukuLocation).title("新宿駅"))
@@ -149,18 +153,19 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun saveInitialUnitCounts() {
         val sharedPreferences = getSharedPreferences("BatteryInfo", MODE_PRIVATE)
-        if (!sharedPreferences.contains("東京_available")) {
+        if (!sharedPreferences.contains("東京駅_available")) {
             with(sharedPreferences.edit()) {
-                putInt("東京_available", 5)
-                putInt("東京_returnable", 3)
-                putInt("新宿駅_available", 10)
-                putInt("新宿駅_returnable", 2)
-                putInt("渋谷駅_available", 8)
-                putInt("渋谷駅_returnable", 1)
+                putInt("東京駅_available", 5) // 東京駅の利用可能台数
+                putInt("東京駅_returnable", 3) // 東京駅の返却可能台数
+                putInt("新宿駅_available", 10) // 新宿駅の利用可能台数
+                putInt("新宿駅_returnable", 2) // 新宿駅の返却可能台数
+                putInt("渋谷駅_available", 8) // 渋谷駅の利用可能台数
+                putInt("渋谷駅_returnable", 1) // 渋谷駅の返却可能台数
                 apply()
             }
         }
     }
+
 
     private fun getUnitCounts(location: String): Pair<Int, Int> {
         val sharedPreferences = getSharedPreferences("BatteryInfo", MODE_PRIVATE)
@@ -169,7 +174,16 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         return Pair(availableUnits, returnableUnits)
     }
 
-    private fun showInfoBubble(locationName: String, batteryInfo: String, hours: String, availableUnits: Int, returnableUnits: Int, phone: String, address: String) {
+
+    private fun showInfoBubble(
+        locationName: String,
+        batteryInfo: String,
+        hours: String,
+        availableUnits: Int,
+        returnableUnits: Int,
+        phone: String,
+        address: String
+    ) {
         currentLocationName = locationName
         currentBatteryInfo = batteryInfo
         currentHours = hours
@@ -180,10 +194,12 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
         findViewById<TextView>(R.id.battery_types).text = batteryInfo
         findViewById<TextView>(R.id.operating_hours).text = hours
+        findViewById<TextView>(R.id.available_units).text = "利用可: ${availableUnits}台"
         findViewById<TextView>(R.id.returnable_units).text = "返却可: ${returnableUnits}台"
         findViewById<TextView>(R.id.phone_number).text = phone
         findViewById<TextView>(R.id.address).text = address
 
         infoBubble.visibility = View.VISIBLE
     }
+
 }

@@ -11,4 +11,9 @@
         <!-- アクセントカラー: 強調用ボタンやインタラクティブ要素に適用 -->
         <item name="colorAccent">@color/accentColor</item> <!-- ボタンやハイライト部分の色 -->
     </style>
+    <style name="CustomAlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textSize">18sp</item> <!-- テキストサイズを指定 -->
+        <item name="android:padding">16dp</item> <!-- パディングを調整 -->
+    </style>
+
 </resources>

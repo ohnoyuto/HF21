@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center">
+    android:padding="@dimen/margin_large"
+    android:gravity="center_horizontal">
 
     <!-- ヘッダー -->
     <TextView
@@ -13,9 +13,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="マイページ"
-        android:textSize="24sp"
+        android:textSize="@dimen/text_size_xlarge"
         android:textStyle="bold"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="@dimen/margin_large" />
 
     <!-- ボディの登録ボタン -->
     <Button
@@ -25,7 +25,8 @@
         android:text="ボディの登録"
         android:backgroundTint="@color/primaryColor"
         android:textColor="@android:color/white"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:textSize="@dimen/text_size_large" />
 
     <!-- 所有しているボディボタン -->
     <Button
@@ -35,7 +36,8 @@
         android:text="所有しているボディ"
         android:backgroundTint="@color/primaryColor"
         android:textColor="@android:color/white"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:textSize="@dimen/text_size_large" />
 
     <!-- 登録情報の変更ボタン -->
     <Button
@@ -45,7 +47,8 @@
         android:text="登録情報の変更"
         android:backgroundTint="@color/primaryColor"
         android:textColor="@android:color/white"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:textSize="@dimen/text_size_large" />
 
     <!-- 利用履歴ボタン -->
     <Button
@@ -55,7 +58,8 @@
         android:text="利用履歴"
         android:backgroundTint="@color/primaryColor"
         android:textColor="@android:color/white"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:textSize="@dimen/text_size_large" />
 
     <!-- お問い合わせボタン -->
     <Button
@@ -65,7 +69,8 @@
         android:text="お問い合わせ"
         android:backgroundTint="@color/primaryColor"
         android:textColor="@android:color/white"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:textSize="@dimen/text_size_large" />
 
     <!-- 戻るボタン -->
     <Button
@@ -75,6 +80,7 @@
         android:text="戻る"
         android:backgroundTint="@android:color/darker_gray"
         android:textColor="@android:color/white"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="@dimen/margin_large"
+        android:textSize="@dimen/text_size_large" />
 
 </LinearLayout>

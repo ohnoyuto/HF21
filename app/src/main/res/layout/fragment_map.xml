@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:padding="@dimen/margin_medium"
         android:background="@android:color/white"
         android:layout_gravity="start|top"
         android:elevation="4dp">
@@ -26,22 +26,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="検索バー"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_size_medium"
             android:textStyle="bold" />
+
         <!-- エリア選択スピナー -->
         <Spinner
             android:id="@+id/area_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/area_array"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="@dimen/margin_small"
+            android:entries="@array/area_array" />
+
         <!-- 戻るボタン -->
         <Button
             android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ホームに戻る"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="@dimen/margin_small"
+            android:padding="@dimen/button_padding" />
     </LinearLayout>
 
     <!-- ピンを選択した際の詳細情報表示バブル -->
@@ -51,41 +54,51 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@drawable/bubble_background"
-        android:padding="16dp"
+        android:padding="@dimen/margin_medium"
         android:layout_gravity="center"
         android:visibility="gone"
         android:elevation="4dp">
+
         <!-- バッテリー種類 -->
         <TextView
             android:id="@+id/battery_types"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="置いてあるバッテリーの種類"
+            android:textSize="@dimen/text_size_medium"
             android:textStyle="bold" />
+
         <!-- 営業時間 -->
         <TextView
             android:id="@+id/operating_hours"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="営業時間: 09:00~24:00" />
+            android:text="営業時間: 09:00~24:00"
+            android:textSize="@dimen/text_size_small" />
+
         <!-- 返却可能台数 -->
         <TextView
             android:id="@+id/returnable_units"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="返却可能: 5台" />
+            android:text="返却可能: 5台"
+            android:textSize="@dimen/text_size_small" />
+
         <!-- 電話番号 -->
         <TextView
             android:id="@+id/phone_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="電話番号: 03-1234-5678" />
+            android:text="電話番号: 03-1234-5678"
+            android:textSize="@dimen/text_size_small" />
+
         <!-- 住所 -->
         <TextView
             android:id="@+id/address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="住所: 東京都新宿区..." />
+            android:text="住所: 東京都新宿区..."
+            android:textSize="@dimen/text_size_small" />
     </LinearLayout>
 
 </FrameLayout>

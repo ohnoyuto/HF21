@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="@dimen/margin_medium">
 
         <!-- ヘッダー -->
         <TextView
@@ -15,9 +15,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="店舗名"
-            android:textSize="24sp"
+            android:textSize="@dimen/text_size_large"
             android:textStyle="bold"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="@dimen/margin_medium" />
 
         <!-- 利用可 -->
         <TextView
@@ -25,7 +25,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="利用可: 1台"
-            android:layout_marginBottom="8dp" />
+            android:textSize="@dimen/text_size_medium"
+            android:layout_marginBottom="@dimen/margin_small" />
 
         <!-- 返却可 -->
         <TextView
@@ -33,7 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="返却可: 9台"
-            android:layout_marginBottom="8dp" />
+            android:textSize="@dimen/text_size_medium"
+            android:layout_marginBottom="@dimen/margin_small" />
 
         <!-- 営業時間 -->
         <TextView
@@ -41,7 +43,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="営業時間: 07:00 - 23:00"
-            android:layout_marginBottom="8dp" />
+            android:textSize="@dimen/text_size_medium"
+            android:layout_marginBottom="@dimen/margin_small" />
 
         <!-- 住所 -->
         <TextView
@@ -49,7 +52,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="住所: 東京都新宿区..."
-            android:layout_marginBottom="8dp" />
+            android:textSize="@dimen/text_size_medium"
+            android:layout_marginBottom="@dimen/margin_small" />
 
         <!-- 電話番号 -->
         <TextView
@@ -57,27 +61,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="電話番号: 03-1234-5678"
-            android:layout_marginBottom="16dp" />
+            android:textSize="@dimen/text_size_medium"
+            android:layout_marginBottom="@dimen/margin_large" />
 
-        <!-- QRスキャンして借りるボタン -->
+        <!-- 借りるボタン -->
         <Button
             android:id="@+id/qr_scan_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="借りる"
+            android:textSize="@dimen/text_size_medium"
             android:backgroundTint="@color/primaryColor"
             android:textColor="@android:color/white"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="@dimen/margin_small"
+            android:padding="@dimen/button_padding" />
 
+        <!-- 返却ボタン -->
         <Button
             android:id="@+id/return_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="返却"
+            android:textSize="@dimen/text_size_medium"
             android:backgroundTint="@color/primaryColor"
             android:textColor="@android:color/white"
-            android:layout_marginTop="16dp" />
-
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:padding="@dimen/button_padding" />
 
         <!-- 戻るボタン -->
         <Button
@@ -85,7 +95,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="戻る"
+            android:textSize="@dimen/text_size_medium"
             android:backgroundTint="@color/primaryColor"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:layout_marginTop="@dimen/margin_large"
+            android:padding="@dimen/button_padding" />
+
     </LinearLayout>
 </ScrollView>

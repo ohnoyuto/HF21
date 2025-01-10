@@ -55,7 +55,6 @@ class UsageHistoryActivity : AppCompatActivity() {
         return historyList
     }
 
-
     /**
      * 履歴アイテムを削除
      */
@@ -64,7 +63,7 @@ class UsageHistoryActivity : AppCompatActivity() {
         val historySet = sharedPreferences.getStringSet("history_list", mutableSetOf())?.toMutableSet() ?: mutableSetOf()
 
         // 削除対象のアイテムを特定
-        val targetString = "${historyItem.action} - ${historyItem.location} - ${historyItem.timestamp}"
+        val targetString = "${historyItem.action}: ${historyItem.location} - ${historyItem.timestamp}"
         if (historySet.contains(targetString)) {
             historySet.remove(targetString) // 履歴を削除
         }

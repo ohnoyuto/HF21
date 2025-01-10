@@ -1,0 +1,27 @@
+<resources>
+    <!-- マージン -->
+    <dimen name="margin_small">24dp</dimen>
+    <dimen name="margin_medium">48dp</dimen>
+    <dimen name="margin_large">64dp</dimen>
+
+    <!-- パディング -->
+    <dimen name="padding_small">24dp</dimen>
+    <dimen name="padding_medium">48dp</dimen>
+    <dimen name="padding_large">64dp</dimen>
+
+    <!-- ボタン -->
+    <dimen name="button_height">72dp</dimen>
+    <dimen name="button_padding">24dp</dimen>
+
+    <!-- テキストサイズ -->
+    <dimen name="text_size_small">20sp</dimen>
+    <dimen name="text_size_medium">24sp</dimen>
+    <dimen name="text_size_large">28sp</dimen>
+    <dimen name="text_size_xlarge">32sp</dimen>
+
+    <dimen name="search_bar_height">64dp</dimen>
+
+
+    <!-- ディバイダサイズ -->
+    <dimen name="divider_height">3dp</dimen>
+</resources>

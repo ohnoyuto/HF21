@@ -9,8 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 // メニュー画面を表示するアクティビティ
 class MenuActivity : AppCompatActivity() {
 
-
-
     // アクティビティ作成時に呼び出される
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +24,6 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
         // マイページボタンの処理
         findViewById<Button>(R.id.my_page_button).setOnClickListener {
             // マイページActivityへ遷移
@@ -34,15 +31,18 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-        // 他のボタンの処理を追加可能
-        // 例: 折り方検索、購入履歴など
+        // 折り方ボタンの処理
         findViewById<Button>(R.id.how_to_fold_button).setOnClickListener {
             // 折り方検索Activityを追加する場合、ここに処理を記述
-        }
-        findViewById<Button>(R.id.history_button).setOnClickListener {
-            // 購入履歴Activityを追加する場合、ここに処理を記述
+            // 例: val intent = Intent(this, HowToFoldActivity::class.java)
+            // startActivity(intent)
         }
 
+        // 履歴ボタンの処理
+        findViewById<Button>(R.id.history_button).setOnClickListener {
+            // UsageHistoryActivity へ遷移
+            val intent = Intent(this, UsageHistoryActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

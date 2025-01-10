@@ -3,25 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="@dimen/margin_medium">
 
+    <!-- 履歴リスト -->
     <ListView
         android:id="@+id/history_list_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:divider="@android:color/darker_gray"
-        android:dividerHeight="1dp" />
+        android:dividerHeight="@dimen/divider_height" />
 
+    <!-- 履歴を削除ボタン -->
     <Button
         android:id="@+id/clear_history_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/button_height"
         android:text="履歴を削除" />
 
+    <!-- 戻るボタン -->
     <Button
         android:id="@+id/back_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/button_height"
         android:text="戻る" />
+
 </LinearLayout>

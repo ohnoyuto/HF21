@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="@dimen/margin_large"
     android:gravity="center">
 
     <!-- ロゴやヘッダー（オプション） -->
@@ -12,10 +13,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ログイン"
-        android:textSize="24sp"
+        android:textSize="@dimen/text_size_large"
         android:textStyle="bold"
         android:gravity="center"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="@dimen/margin_medium" />
 
     <!-- ログインID -->
     <EditText
@@ -24,9 +25,9 @@
         android:layout_height="wrap_content"
         android:hint="IDまたはメールアドレス"
         android:inputType="textEmailAddress"
-    android:padding="12dp"
-    android:background="@android:drawable/editbox_background"
-    android:layout_marginBottom="16dp" />
+        android:padding="@dimen/padding_medium"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="@dimen/margin_small" />
 
     <!-- パスワード -->
     <EditText
@@ -35,9 +36,9 @@
         android:layout_height="wrap_content"
         android:hint="パスワード"
         android:inputType="textPassword"
-    android:padding="12dp"
-    android:background="@android:drawable/editbox_background"
-    android:layout_marginBottom="16dp" />
+        android:padding="@dimen/padding_medium"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="@dimen/margin_small" />
 
     <!-- ログインボタン -->
     <Button
@@ -47,8 +48,8 @@
         android:text="ログイン"
         android:backgroundTint="@color/primaryColor"
         android:textColor="@android:color/white"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp" />
+        android:padding="@dimen/padding_medium"
+        android:layout_marginBottom="@dimen/margin_small" />
 
     <!-- パスワード忘れリンク -->
     <TextView
@@ -57,8 +58,9 @@
         android:layout_height="wrap_content"
         android:text="パスワードを忘れた場合はこちら"
         android:textColor="@android:color/holo_blue_dark"
+        android:textSize="@dimen/text_size_small"
         android:layout_gravity="center"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="@dimen/margin_medium" />
 
     <!-- 新規登録リンク -->
     <TextView
@@ -67,6 +69,7 @@
         android:layout_height="wrap_content"
         android:text="新規登録はこちら"
         android:textColor="@android:color/holo_blue_dark"
+        android:textSize="@dimen/text_size_small"
         android:layout_gravity="center" />
 
 </LinearLayout>

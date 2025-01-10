@@ -39,13 +39,13 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         googleMap = map
 
         // 東京の座標
-        val tokyo = LatLng(35.6895, 139.6917)
+        val tokyo = LatLng(35.681236, 139.767125)
 
         // 東京にマーカーを追加
         googleMap.addMarker(
             MarkerOptions()
                 .position(tokyo) // マーカーの位置を指定
-                .title("東京") // マーカーのタイトル
+                .title("東京駅") // マーカーのタイトル
         )
 
         // カメラを東京に移動
